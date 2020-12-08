@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.3" client="site" method="upgrade">
+	<name>JS - Basket ajax</name>
+	<author>Sadko</author>
+	<creationDate>14.02.2016</creationDate>
+	<copyright>Copyright © 2015 Milane</copyright>
+	<license>GNU/GPLv3</license>
+	<authorEmail>info@milane.ru</authorEmail>
+	<authorUrl>http://milane.ru/</authorUrl>
+	<version>3.0</version>
+	<description>Module Basket ajax for JoomShopping</description>
+	<files>
+		<filename module="mod_jshopping_basket_ajax">mod_jshopping_basket_ajax.php</filename>
+		<folder>css</folder>
+		<folder>img</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">lang/en-GB.mod_jshopping_basket_ajax.ini</language>
+		<language tag="ru-RU">lang/ru-RU.mod_jshopping_basket_ajax.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="cartImageOn" 
+					type="radio" 
+					default="1" 
+					class="btn-group"
+					label="MOD_JSHOPPING_BASKET_IMAGE_SET" 
+					description="MOD_JSHOPPING_BASKET_IMAGE_SET_DESC">
+						<option value="1">MOD_JSHOPPING_BASKET_IMAGE_STANDARD</option>
+						<option value="2">MOD_JSHOPPING_BASKET_IMAGE_YOUR</option>
+						<option value="3">MOD_JSHOPPING_BASKET_NO_IMAGE</option>
+						<option value="4">MOD_JSHOPPING_BASKET_TEXT</option>
+                </field>
+				<field 
+				    name="cartImage" 
+					label="MOD_JSHOPPING_BASKET_IMAGE_YOUR" 
+					type="media"  
+					description="MOD_JSHOPPING_BASKET_IMAGE_YOUR_DESC" 
+					/>
+				<field 
+				    name="cartText" 
+					label="MOD_JSHOPPING_BASKET_TEXT" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_TEXT_DESC"
+					default="Cart"
+					/>
+				<field
+					name="textPosition" 
+					type="radio" 
+					default="left" 
+					class="btn-group"
+					label="MOD_JSHOPPING_BASKET_TEXT_POS" 
+					description="MOD_JSHOPPING_BASKET_TEXT_POS_DESC">
+						<option value="left">MOD_JSHOPPING_BASKET_TEXT_POS_L</option>
+						<option value="right">MOD_JSHOPPING_BASKET_TEXT_POS_R</option>
+                </field>
+				<field 
+				    name="cartWidth" 
+					label="MOD_JSHOPPING_BASKET_WIDTH" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_WIDTH_DESC"
+					default="40"
+					/>
+				<field 
+				    name="CartTooltip" 
+					label="MOD_JSHOPPING_BASKET_TOOLTIP" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_TOOLTIP_DESC"
+					default=""
+					/>
+				<field 
+				    name="cartImageWidth" 
+					label="MOD_JSHOPPING_BASKET_IMAGE_WIDTH" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_IMAGE_WIDTH_DESC"
+					default="64"
+					/>
+				<field 
+				    name="cartImageHeight" 
+					label="MOD_JSHOPPING_BASKET_IMAGE_HEIGHT" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_IMAGE_HEIGHT_DESC"
+					default="34"
+					/>
+				<field
+					name="bgBorder"
+					type="text" 
+					label="MOD_JSHOPPING_BASKET_BG_BORDER" 
+					description="MOD_JSHOPPING_BASKET_BG_BORDER_DESC" 
+					size="30"
+					default="1" />
+				<field
+					name="BorderRad"
+					type="text" 
+					label="MOD_JSHOPPING_BASKET_BORDERRAD" 
+					description="MOD_JSHOPPING_BASKET_BORDERRAD_DESC" 
+					size="30"
+					default="4" />
+				<field
+					name="bgBorderColor"
+					type="color" 
+					label="MOD_JSHOPPING_BASKET_BG_BORDER_COLOR" 
+					description="MOD_JSHOPPING_BASKET_BG_BORDER_COLOR_DESC" 
+					size="30"
+					default="#5bb75b" />
+				<field
+					name="bgColor"
+					type="color" 
+					label="MOD_JSHOPPING_BASKET_BG" 
+					description="MOD_JSHOPPING_BASKET_BG_DESC" 
+					size="30"
+					default="#EEDFCC" />
+				<field
+					name="textColor"
+					type="color" 
+					label="MOD_JSHOPPING_BASKET_TEXT_COLOR" 
+					description="MOD_JSHOPPING_BASKET_TEXT_COLOR_DESC" 
+					size="30"
+					default="#ffffff" />
+				<field
+					name="textSize"
+					type="text" 
+					label="MOD_JSHOPPING_BASKET_TEXT_SIZE" 
+					description="MOD_JSHOPPING_BASKET_TEXT_SIZE_DESC" 
+					size="30"
+					default="22" />
+			<field type="spacer" name="basketList" hr="true" />
+			    <field
+					name="bgBorderList"
+					type="text" 
+					label="MOD_JSHOPPING_BASKET_BORDER_LIST" 
+					description="MOD_JSHOPPING_BASKET_BORDER_LIST_DESC" 
+					size="30"
+					default="1" />
+				<field
+					name="BorderRadList"
+					type="text" 
+					label="MOD_JSHOPPING_BASKET_BORDER_RADIUS_LIST" 
+					description="MOD_JSHOPPING_BASKET_BORDER_RADIUS_LIST_DESC" 
+					size="30"
+					default="4" />
+				<field
+					name="bgBorderColorList"
+					type="color" 
+					label="MOD_JSHOPPING_BASKET_BORDER_COLOR_LIST" 
+					description="MOD_JSHOPPING_BASKET_BORDER_COLOR_LIST_DESC" 
+					size="30"
+					default="#5bb75b" />
+				<field
+					name="bgColorList"
+					type="color" 
+					label="MOD_JSHOPPING_BASKET_BG_COLOR_LIST" 
+					description="MOD_JSHOPPING_BASKET_BG_COLOR_LIST_DESC" 
+					size="30"
+					default="#EEDFCC" />
+				<field 
+				    name="WidthList" 
+					label="MOD_JSHOPPING_BASKET_LIST_WIDTH" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_LIST_WIDTH_DESC"
+					default="300"
+					/>
+				<field 
+				    name="HeightList" 
+					label="MOD_JSHOPPING_BASKET_LIST_HEIGHT" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_LIST_HEIGHT_DESC"
+					default="500"
+					/>
+				<field 
+				    name="ProdImageWidth" 
+					label="MOD_JSHOPPING_BASKET_LIST_IMG_WIDTH" 
+					type="text"  
+					description="MOD_JSHOPPING_BASKET_LIST_IMG_WIDTH_DESC"
+					default="60"
+					/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					rows="1"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
