@@ -453,11 +453,7 @@ jQuery(function ($) {
     /* END Joomshopping Social Share */
 
     /* Скрипт скролбара */
-    $(document).ready(function () {
 
-        var nice = $(".ui-multiselect-checkboxes, .comment-body, .testimonial__item").niceScroll({cursorcolor: "#ffb000"});
-
-    });
     $(document).ready(function () {
 
         var nice = $(".prod-description__item, .cat__desk").niceScroll({cursorcolor: "#ffb000"});
@@ -472,6 +468,9 @@ jQuery(function ($) {
             $('.modal-wrapper').toggleClass('open');
             $('.page-wrapper').toggleClass('blur-it');
             return false;
+        });
+        $('.catalog-mobile__filters').on('click', function () {
+            $('.mobile-filter-form').toggleClass('active');
         });
 
     });
@@ -488,6 +487,30 @@ jQuery(function ($) {
     $(document).ready(function () {
         $('.trigger-pro').on('click', function () {
             $('.modal-products__feedback').toggleClass('open');
+            $('.page-wrapper').toggleClass('blur-it');
+            return false;
+        });
+
+    });
+    $(document).ready(function () {
+        $('.add-request').on('click', function () {
+            $('.modal-form__comment').toggleClass('open');
+            $('.page-wrapper').toggleClass('blur-it');
+            return false;
+        });
+
+    });
+    $(document).ready(function () {
+        $('.rules-trigger').on('click', function () {
+            $('.modal-form__rule').toggleClass('open');
+            $('.page-wrapper').toggleClass('blur-it');
+            return false;
+        });
+
+    });
+    $(document).ready(function () {
+        $('.back-trigger').on('click', function () {
+            $('.modal-form__back-item').toggleClass('open');
             $('.page-wrapper').toggleClass('blur-it');
             return false;
         });
@@ -694,13 +717,14 @@ window.onload = function () {
     }
     let addComment = document.querySelector('.checkout-add__comment')
     let addCommentTextarea = document.querySelector('.checkout-add__comment-text')
-    let commentDefault = addComment.innerHTML
-    let commentEdit = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
-        '<path fill-rule="evenodd" clip-rule="evenodd" d="M6.3 1.78639H7.85556H14V0.289062H7.85556H6.3H0V1.78639H6.3Z" fill="#828282"/>\n' +
-        '</svg>\n' +
-        '<span>Удалить комментарий к заказу</span>'
+
     let addCommentClick = false
     if (addComment){
+        let commentDefault = addComment.innerHTML
+        let commentEdit = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+            '<path fill-rule="evenodd" clip-rule="evenodd" d="M6.3 1.78639H7.85556H14V0.289062H7.85556H6.3H0V1.78639H6.3Z" fill="#828282"/>\n' +
+            '</svg>\n' +
+            '<span>Удалить комментарий к заказу</span>'
         addComment.addEventListener('click', function (){
             if (addCommentClick){
                 addCommentTextarea.setAttribute('style','')
@@ -714,4 +738,26 @@ window.onload = function () {
             }
         })
     }
+
+    let prodGalleryImg = document.querySelectorAll('.product-gallery img')
+    let prodGalleryMainImg = document.querySelector('.image_middle img')
+    if (prodGalleryImg.length != 0){
+        prodGalleryImg.forEach(function (item){
+            item.addEventListener('click', function (){
+                prodGalleryMainImg.setAttribute('src',item.getAttribute('src'))
+                prodGalleryImg.forEach(function (itemImg){
+                    itemImg.classList.remove('product-gallery__active')
+                })
+                item.classList.add('product-gallery__active')
+            })
+        })
+    }
 }
+$(document).ready(function(){
+    $(".sp-footer__up-scroll").on("click", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 500);
+    });
+});
